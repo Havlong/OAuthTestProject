@@ -16,6 +16,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/user_avatar_desc"
+        android:padding="4dp"
         app:layout_constraintBottom_toTopOf="@+id/userNameView"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +25,18 @@
         app:layout_constraintTop_toBottomOf="@+id/userTitle"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintWidth_percent="0.5"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@android:drawable/ic_menu_compass" />
+
+    <ImageView
+        android:id="@+id/borderImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/border_desc"
+        android:src="@drawable/circle_border"
+        app:layout_constraintBottom_toBottomOf="@+id/avatarImage"
+        app:layout_constraintEnd_toEndOf="@+id/avatarImage"
+        app:layout_constraintStart_toStartOf="@+id/avatarImage"
+        app:layout_constraintTop_toTopOf="@+id/avatarImage" />
 
     <TextView
         android:id="@+id/userNameValue"
@@ -52,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/nickNameView"
-        tools:text="Grishin" />
+        tools:text="Havlong" />
 
     <TextView
         android:id="@+id/userNameView"
@@ -97,4 +109,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

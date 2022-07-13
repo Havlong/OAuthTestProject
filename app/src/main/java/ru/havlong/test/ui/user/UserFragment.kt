@@ -1,13 +1,13 @@
 package ru.havlong.test.ui.user
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import android.graphics.*
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.graphics.applyCanvas
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
@@ -47,7 +47,8 @@ class UserFragment : Fragment() {
             launch {
                 val bitmap = loadImage()
                 bitmap?.let {
-                    binding.avatarImage.setImageBitmap(it)
+                    val croppedBitmap = cropToCircle(it)
+                    binding.avatarImage.setImageBitmap(croppedBitmap)
                 }
             }
             binding.userNameValue.text = jwt.username
@@ -60,6 +61,29 @@ class UserFragment : Fragment() {
         _binding = null
     }
 
+    private suspend fun cropToCircle(bitmap: Bitmap): Bitmap = withContext(Dispatchers.Default) {
+        val output = Bitmap.createBitmap(
+            bitmap.width,
+            bitmap.height,
+            Bitmap.Config.ARGB_8888
+        )
+
+        output.applyCanvas {
+            val paint = Paint()
+            val rect = Rect(0, 0, bitmap.width, bitmap.height)
+
+            paint.isAntiAlias = true
+            drawARGB(0, 0, 0, 0)
+            drawCircle(
+                bitmap.width / 2f,
+                bitmap.height / 2f,
+                bitmap.width / 2f,
+                paint
+            )
+            paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+            drawBitmap(bitmap, rect, rect, paint)
+        }
+    }
 
 
     private suspend fun decodeToken() = withContext(Dispatchers.Default) {

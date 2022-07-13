@@ -46,7 +46,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun onFail(exception: AuthorizationException) {
         toastChannel.trySendBlocking(R.string.auth_cancelled)
-        Log.e("Authorization", exception.toString())
+        Log.e("Authorization", exception.stackTraceToString())
     }
 
     fun onCode(tokenExchangeRequest: TokenRequest) {

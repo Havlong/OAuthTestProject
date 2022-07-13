@@ -9,5 +9,6 @@
     <string name="user_avatar_desc">User Avatar</string>
     <string name="username">User Name</string>
     <string name="nickname">NickName</string>
+    <string name="border_desc">ImageView used as a border</string>
 
 </resources>
