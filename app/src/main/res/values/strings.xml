@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Test</string>
+
+    <string name="signin_hint">Enter Arbina Realm</string>
+    <string name="arbina_logo_desc">Arbina Logo</string>
+    <string name="auth_cancelled">Authentication was cancelled</string>
+
+    <string name="welcome">Welcome to the Arbina Realm</string>
+    <string name="user_avatar_desc">User Avatar</string>
+    <string name="username">User Name</string>
+    <string name="nickname">NickName</string>
+
+</resources>
