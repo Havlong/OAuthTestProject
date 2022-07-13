@@ -10,5 +10,6 @@
     <string name="username">User Name</string>
     <string name="nickname">NickName</string>
     <string name="border_desc">ImageView used as a border</string>
+    <string name="profile">Your profile</string>
 
 </resources>

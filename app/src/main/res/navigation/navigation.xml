@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="ru.havlong.test.ui.login.LoginFragment"
-        android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/loginAction"
@@ -18,7 +17,7 @@
     <fragment
         android:id="@+id/userFragment"
         android:name="ru.havlong.test.ui.user.UserFragment"
-        android:label="fragment_user"
+        android:label="@string/profile"
         tools:layout="@layout/fragment_user" >
         <argument android:name="token"
             app:argType="string" />
